@@ -1,0 +1,32 @@
+import { DataService } from './../data.service';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';      // Add this
+import { Router } from '@angular/router';             // Add this
+
+
+
+
+@Component({
+  selector: 'app-about',
+  templateUrl: './about.component.html',
+  styleUrls: ['./about.component.scss']
+})
+
+export class AboutComponent implements OnInit {
+
+  
+    constructor(private route: ActivatedRoute, private router: Router, private _data: DataService) { 
+      this.route.params.subscribe(res => console.log(res.id));
+    }
+
+    sendMeHome() {
+      this.router.navigate(['']);
+    }
+  
+  
+
+    ngOnInit() {
+      //this._data.goal.subscribe(res => this.goals = res);
+    }
+
+}
